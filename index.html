@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Mr Menu Test</title>
+<meta charset='utf-8'>
+</head>
+<body>
+<div id="Uha"></div>
+
+<script>
+var mrToolBox = function (id) {
+	var box = this;
+	box.set = {
+		chk = (id + "_Check");
+	};
+	box.elem = document.getElementById(id);
+	box.init = function() {
+		var hideBox = document.createElement("div");
+		hideBox.setAttribute("style", "right:0;top:0;position:fixed;z-index: 999; color: #777;");
+		var hideLabel = document.createElement("label");
+		hideLabel.innerHTML = "Hide";
+		var hideCheck = document.createElement("input");
+		hideCheck.setAttribute("id", box.set.chk);
+		hideCheck.setAttribute("type", "checkbox");
+		hideBox.appendChild(hideLabel);
+		hideBox.appendChild(hideCheck);	
+		document.getElementsByTagName("body")[0].appendChild(hideBox);
+		box.elem.setAttribute("style", "border-radius: 5px; background: rgba(133,133,123,0.9); width: 350px; padding: 10px; top: 0; right:0; height: 100%; position:fixed; z-index: 998; transition: 0.1s;");
+	};
+	box.init();
+	
+};
+
+var box = new mrToolBox("Uha");
+</script>
+</body>
+</html>
