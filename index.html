@@ -13,6 +13,7 @@ var mrToolBox = function (id, settings) {
 	box.set = {
 		chk : (id + "_Check"),
 		sld : (id + "_Slider"),
+		wth : (window.innerWidth > 860) ? 350 : (window.innerWidth / 3),
 		txt : (settings != null && settings.text != null) ? settings.text : (window.navigator.language.indexOf("da") != -1 ? "Gem Menu" : "Hide Menu")
 	};
 	box.slide = false;
@@ -93,12 +94,14 @@ var mrToolBox = function (id, settings) {
 		});
 		window.addEventListener("mouseup", function(event) {
 			if (box.slide == true) {
+				box.set.wth = (window.innerWidth -  event.pageX - 16);
 				box.elem.style.width = box.set.wth + "px";
 				box.slide = false;
 			}
 		});
 		window.addEventListener("mousemove", function(event) {
 			if (box.slide == true) {
+				box.set.wth = (window.innerWidth -  event.pageX - 16);
 				box.elem.style.width = box.set.wth + "px";
 			}
 		});
